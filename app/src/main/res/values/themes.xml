@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Music Player</string>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Основные цвета темы -->
+        <item name="colorPrimary">@color/dark_orange</item>
+        <item name="colorPrimaryDark">@color/dark_orange</item>
+        <item name="colorAccent">@color/dark_orange</item>
+    </style>
+</resources>

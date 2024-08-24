@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:contextClickable="false"
+    android:textAlignment="textEnd"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/dark_blue"
+        android:titleTextColor="@color/dark_orange" />
+
+
+
+    <SeekBar
+        android:id="@+id/volumeSeekBar"
+        android:layout_width="237dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="24dp"
+        android:progressTint="@color/dark_orange"
+        android:thumbTint="@color/dark_orange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSong" />
+
+    <TextView
+        android:id="@+id/textViewSong"
+        android:layout_width="72dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="300dp"
+        android:background="@color/black_blue"
+        android:gravity="center"
+        android:text="My Song"
+        android:textAlignment="center"
+        android:textColor="@color/dark_orange"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/volumeSeekBar"
+        app:layout_constraintStart_toStartOf="@+id/volumeSeekBar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/skipLeftBackground"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.262"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/volumeSeekBar" />
+
+    <ImageButton
+        android:id="@+id/skipLeftButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/skip_left"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.262"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/volumeSeekBar" />
+
+    <ImageView
+        android:id="@+id/playBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/circle"
+        app:layout_constraintStart_toEndOf="@+id/skipLeftButton"
+        app:layout_constraintTop_toBottomOf="@+id/volumeSeekBar" />
+
+    <Button
+        android:id="@+id/playButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/play"
+        android:textColorLink="@color/design_default_color_primary"
+        app:layout_constraintStart_toEndOf="@+id/skipLeftButton"
+        app:layout_constraintTop_toBottomOf="@+id/volumeSeekBar" />
+
+    <ImageView
+        android:id="@+id/skipRightBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/circle"
+        app:layout_constraintStart_toEndOf="@+id/playButton"
+        app:layout_constraintTop_toBottomOf="@+id/volumeSeekBar" />
+
+
+    <ImageButton
+        android:id="@+id/skipRightButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/skip_right"
+        app:layout_constraintStart_toEndOf="@+id/playButton"
+        app:layout_constraintTop_toBottomOf="@+id/volumeSeekBar" />
+
+    <ImageView
+        android:id="@+id/clefBack"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/circle"
+        app:layout_constraintBottom_toTopOf="@+id/textViewSong"
+        app:layout_constraintEnd_toEndOf="@+id/textViewSong"
+        app:layout_constraintStart_toStartOf="@+id/textViewSong"
+         />
+
+    <ImageView
+        android:id="@+id/clef"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewSong"
+        app:layout_constraintEnd_toEndOf="@+id/textViewSong"
+        app:layout_constraintStart_toStartOf="@+id/textViewSong"
+        app:srcCompat="@drawable/clef" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
