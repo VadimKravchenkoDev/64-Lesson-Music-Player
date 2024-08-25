@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().setTitle(getString(R.string.app_name));
         }
         toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.dark_orange));
-        playPauseIcon = findViewById(R.id.playBack);
+        playPauseIcon = findViewById(R.id.playButton);
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.stuff);
 
     }
