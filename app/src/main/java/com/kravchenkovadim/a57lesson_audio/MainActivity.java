@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
     ImageView playPauseIcon;
     SeekBar seekBar;
+    Boolean stateMusic = false;
+    int duration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,19 +63,57 @@ public class MainActivity extends AppCompatActivity {
         },0, 1000);
     }
 
-    public void previousTrack(View view) {
-    }
 
-    public void nextTrack(View view) {
-    }
 
     public void playTrack(View view) {
+        if (seekBar.getProgress() == mediaPlayer.getDuration()){
+            mediaPlayer.seekTo(0);
+
+        }
+        if(!stateMusic){
+            playPauseIcon.setImageResource(R.drawable.pause);
+        }
+
+        if(stateMusic){
+            playPauseIcon.setImageResource(R.drawable.play);
+        }
+        Log.d("mylog", "proverka");
         if(mediaPlayer.isPlaying()){
             mediaPlayer.pause();
             playPauseIcon.setImageResource(R.drawable.play);
+            stateMusic = true;
         } else {
             mediaPlayer.start();
             playPauseIcon.setImageResource(R.drawable.pause);
+            stateMusic = false;
         }
+    }
+
+    public void skipRightButton(View view) {
+
+        //mediaPlayer.stop();
+        //mediaPlayer = MediaPlayer.create(this, R.raw.stuff);
+        //seekBar.setMax(mediaPlayer.getDuration());
+        //seekBar.setProgress(seekBar.getMax());
+        mediaPlayer.seekTo(mediaPlayer.getDuration());
+        mediaPlayer.pause();
+        seekBar.setProgress(seekBar.getMax());
+        if(!stateMusic){
+            playPauseIcon.setImageResource(R.drawable.play);
+            stateMusic = false;
+        }
+
+    }
+
+    public void skipLeftButton(View view) {
+        mediaPlayer.stop();
+        mediaPlayer.reset();
+        seekBar.setProgress(0);
+        mediaPlayer = MediaPlayer.create(this, R.raw.stuff);
+        if(!stateMusic){
+            playPauseIcon.setImageResource(R.drawable.play);
+            stateMusic = false;
+        }
+
     }
 }
