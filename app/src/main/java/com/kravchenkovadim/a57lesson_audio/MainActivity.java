@@ -7,15 +7,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
 public class MainActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
-    Button playButton;
-    SeekBar volumeSeebar;
-    AudioManager audioManager;
+    ImageView playPauseIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,52 +22,29 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-// Устанавливаем заголовок из android:label, указанного в манифесте
+        // Устанавливаем заголовок из android:label, указанного в манифесте
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(getString(R.string.app_name));
         }
         toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.dark_orange));
-
-
-        audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
-        int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-
-        volumeSeebar = findViewById(R.id.volumeSeekBar);
-        volumeSeebar.setMax(maxVolume);
-        volumeSeebar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
-                Log.d("Progress changed: ", "" + progress);
-                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, progress, 0);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
-        playButton = findViewById(R.id.playButton);
+        playPauseIcon = findViewById(R.id.playBack);
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.stuff);
-        playButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (playButton.getText().equals("Play")) {
-                    mediaPlayer.start();
-                    playButton.setText("Pause");
-                } else if (playButton.getText().equals("Pause")) {
-                    mediaPlayer.pause();
-                    playButton.setText("Play");
-                }
-            }
-        });
+
     }
 
-    public void previous(View view) {
+    public void previousTrack(View view) {
+    }
+
+    public void nextTrack(View view) {
+    }
+
+    public void playTrack(View view) {
+        if(mediaPlayer.isPlaying()){
+            mediaPlayer.pause();
+            playPauseIcon.setImageResource(R.drawable.pause);
+        } else {
+            mediaPlayer.start();
+            playPauseIcon.setImageResource(R.drawable.play);
+        }
     }
 }

@@ -46,7 +46,7 @@
 
     <ImageView
         android:id="@+id/skipLeftBackground"
-        android:onClick="previous"
+        android:onClick="previousTrack"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
@@ -69,6 +69,7 @@
 
     <ImageView
         android:id="@+id/playBack"
+        android:onClick="playTrack"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
@@ -90,6 +91,7 @@
 
     <ImageView
         android:id="@+id/skipRightBack"
+        android:onClick="nextTrack"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
