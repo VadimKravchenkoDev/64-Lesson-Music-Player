@@ -1,6 +1,7 @@
 package com.kravchenkovadim.a57lesson_audio;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
+
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if(fromUser){
+                if (fromUser) {
                     mediaPlayer.seekTo(progress);
                 }
             }
@@ -60,25 +62,21 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 seekBar.setProgress(mediaPlayer.getCurrentPosition());
             }
-        },0, 1000);
+        }, 0, 1000);
     }
 
 
-
     public void playTrack(View view) {
-        if (seekBar.getProgress() == mediaPlayer.getDuration()){
+        if (seekBar.getProgress() == mediaPlayer.getDuration()) {
             mediaPlayer.seekTo(0);
-
         }
-        if(!stateMusic){
+        if (!stateMusic) {
             playPauseIcon.setImageResource(R.drawable.pause);
         }
-
-        if(stateMusic){
+        if (stateMusic) {
             playPauseIcon.setImageResource(R.drawable.play);
         }
-        Log.d("mylog", "proverka");
-        if(mediaPlayer.isPlaying()){
+        if (mediaPlayer.isPlaying()) {
             mediaPlayer.pause();
             playPauseIcon.setImageResource(R.drawable.play);
             stateMusic = true;
@@ -90,15 +88,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void skipRightButton(View view) {
-
-        //mediaPlayer.stop();
-        //mediaPlayer = MediaPlayer.create(this, R.raw.stuff);
-        //seekBar.setMax(mediaPlayer.getDuration());
-        //seekBar.setProgress(seekBar.getMax());
         mediaPlayer.seekTo(mediaPlayer.getDuration());
         mediaPlayer.pause();
         seekBar.setProgress(seekBar.getMax());
-        if(!stateMusic){
+        if (!stateMusic) {
             playPauseIcon.setImageResource(R.drawable.play);
             stateMusic = false;
         }
@@ -110,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer.reset();
         seekBar.setProgress(0);
         mediaPlayer = MediaPlayer.create(this, R.raw.stuff);
-        if(!stateMusic){
+        if (!stateMusic) {
             playPauseIcon.setImageResource(R.drawable.play);
             stateMusic = false;
         }
