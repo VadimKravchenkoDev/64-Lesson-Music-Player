@@ -12,9 +12,13 @@ import android.widget.SeekBar;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
     ImageView playPauseIcon;
+    SeekBar seekBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +33,14 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.dark_orange));
         playPauseIcon = findViewById(R.id.playButton);
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.stuff);
-
+        seekBar = findViewById(R.id.seekBar);
+        seekBar.setMax(mediaPlayer.getDuration());
+        new Timer().scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                seekBar.setProgress(mediaPlayer.getCurrentPosition());
+            }
+        },0, 1000);
     }
 
     public void previousTrack(View view) {
@@ -41,10 +52,10 @@ public class MainActivity extends AppCompatActivity {
     public void playTrack(View view) {
         if(mediaPlayer.isPlaying()){
             mediaPlayer.pause();
-            playPauseIcon.setImageResource(R.drawable.pause);
+            playPauseIcon.setImageResource(R.drawable.play);
         } else {
             mediaPlayer.start();
-            playPauseIcon.setImageResource(R.drawable.play);
+            playPauseIcon.setImageResource(R.drawable.pause);
         }
     }
 }

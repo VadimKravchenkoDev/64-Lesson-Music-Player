@@ -19,7 +19,7 @@
 
 
     <SeekBar
-        android:id="@+id/volumeSeekBar"
+        android:id="@+id/seekBar"
         android:layout_width="237dp"
         android:layout_height="24dp"
         android:layout_marginTop="24dp"
@@ -40,8 +40,8 @@
         android:textAlignment="center"
         android:textColor="@color/dark_orange"
         android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/volumeSeekBar"
-        app:layout_constraintStart_toStartOf="@+id/volumeSeekBar"
+        app:layout_constraintEnd_toEndOf="@+id/seekBar"
+        app:layout_constraintStart_toStartOf="@+id/seekBar"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -54,7 +54,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.262"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/volumeSeekBar" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
     <ImageButton
         android:id="@+id/skipLeftButton"
@@ -65,7 +65,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.262"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/volumeSeekBar" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
     <ImageView
         android:id="@+id/playBack"
@@ -76,7 +76,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/circle"
         app:layout_constraintStart_toEndOf="@+id/skipLeftButton"
-        app:layout_constraintTop_toBottomOf="@+id/volumeSeekBar" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
     <ImageView
         android:id="@+id/playButton"
@@ -87,7 +87,7 @@
         app:srcCompat="@drawable/play"
         android:textColorLink="@color/design_default_color_primary"
         app:layout_constraintStart_toEndOf="@+id/skipLeftButton"
-        app:layout_constraintTop_toBottomOf="@+id/volumeSeekBar" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
     <ImageView
         android:id="@+id/skipRightBack"
@@ -98,7 +98,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/circle"
         app:layout_constraintStart_toEndOf="@+id/playButton"
-        app:layout_constraintTop_toBottomOf="@+id/volumeSeekBar" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
 
     <ImageButton
@@ -109,7 +109,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/skip_right"
         app:layout_constraintStart_toEndOf="@+id/playButton"
-        app:layout_constraintTop_toBottomOf="@+id/volumeSeekBar" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
     <ImageView
         android:id="@+id/clefBack"
